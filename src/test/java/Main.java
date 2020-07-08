@@ -13,18 +13,13 @@ public class Main {
     public void sampleTest() {
 
         // Setup
-        //MainPage mainPage = new MainPage(driver);
-        String expectedTableTitle = "Table Sort And Search Demo";
 
         // Given
-        //mainPage.accessPage();
         driver.get(Constants.SUBMARINO_MAIN_URL);
 
         // When
 
-
         // Then
-
 
         // End session
         DriverFactory.endSession();
