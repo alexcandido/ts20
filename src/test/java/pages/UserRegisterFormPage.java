@@ -18,6 +18,7 @@ public class UserRegisterFormPage {
     private By phoneField = By.cssSelector(".cadastroForm [name=phone]");
     private By offerEmailRadioFlag = By.cssSelector(".cadastroForm [for=offersEmail]");
     private By submitButton = By.cssSelector(".cadastroForm button[type=submit]");
+    private By errorMsg = By.cssSelector(".inputGroup#email .inputGroup-error"); //Xpath //div[@id='email']/div[contains(@class, 'inputGroup-error')]
 
     public void setElement(By elementId, String text) {
         WebElement element = driver.findElement(elementId);
@@ -76,6 +77,11 @@ public class UserRegisterFormPage {
         } else {
             setFemaleRadioFlag();
         }
+    }
+
+    public String getMessage() {
+        WebElement element = driver.findElement(errorMsg);
+        return element.getText().trim();
     }
 
     public void submitUserForm(String email, String password, String cpf, String name, String birthday, String gender, String phone) {
