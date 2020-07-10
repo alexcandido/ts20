@@ -14,6 +14,10 @@ public class SubmarinoMainPage {
     private By emailOffers = By.cssSelector("input[placeholder='Digite seu E-mail'][name=email]");
     private By cadastrarBtn = By.cssSelector("button[type=submit][value=Cadastrar]");
     private By successMsg = By.xpath("//span[contains(text(),'Seu e-mail foi cadastrado com sucesso!')]");
+    private By youtubeIcn = By.cssSelector(".sc-list [title=Youtube]");
+    private By facebookIcn = By.cssSelector(".sc-list [title=Facebook]");
+    private By instaIcn = By.cssSelector(".sc-list [title=Instagram]");
+    private By twitterIcn = By.cssSelector(".sc-list [title=Twitter]");
 
 
     public SubmarinoMainPage(WebDriver driver){
