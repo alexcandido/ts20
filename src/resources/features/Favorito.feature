@@ -9,9 +9,8 @@ Feature: Como usuário do submarino
     Given o usuário está logado no portal
 
   Scenario: Adicionar produto na lista de favoritos
-    Given o usuário está na home page do submarino
-    And o usuário digita o produto "console play station 4"
-    And o usuário pressiona enter
+    Given o usuário está na home page
+    And o usuário busca o produto "console play station 4" através da barra de busca
     And o portal irá listar produtos relacionados com o termo buscado "console play station 4"
     And o usuário seleciona um dos produtos listados
     When o usuário adiciona o item a lista de favoritos
@@ -19,7 +18,7 @@ Feature: Como usuário do submarino
     Then o portal lista o item adicionado "console play station 4"
 
   Scenario: Esvaziar lista de favoritos
-    Given o usuário está na home page do submarino
+    Given o usuário está na home page
     And o usuário vai para a lista de favoritos
     When o usuário remove os itens da lista de favoritos
     Then o portal irá informar que a lista está vazia
