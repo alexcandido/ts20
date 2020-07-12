@@ -28,22 +28,22 @@ public class RegisterOffersList {
     }
 
     @When("o usuário digitar seu e-mail na lista de ofertas")
-    public void o_usuário_digitar_seu_e_mail_na_lista_de_ofertas() {
+    public void typeValidEmailOnOffersField() {
         submarinoMainPage.setEmailField(Constants.SUBMARINO_ACCOUNT);
     }
 
     @When("o usuário selecionar o botão cadastrar")
-    public void o_usuário_selecionar_o_botão_cadastrar() {
+    public void selectCadastrasButton() {
         submarinoMainPage.clickSubmitBtn();
     }
 
     @Then("o sistema irá cadastrar o usuário na lista de ofertas")
-    public void o_sistema_irá_cadastrar_o_usuário_na_lista_de_ofertas() {
+    public void userRegisteredSuccess() {
         commonActions.waitForAnElementBeVisible(submarinoMainPage.SUCCESS_MESSAGE);
     }
 
     @Then("o sistema irá retornar uma mensgem de sucesso")
-    public void o_sistema_irá_retornar_uma_mensgem_de_sucesso() {
+    public void checkSuccessMsg() {
         String expectedMsg = "Seu e-mail foi cadastrado com sucesso!";
         String actualMsg = commonActions.elementText(submarinoMainPage.SUCCESS_MESSAGE);
 
