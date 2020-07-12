@@ -50,7 +50,7 @@ public class CommonActions {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public String getText(By locator) {
+    public String elementText(By locator) {
         WebElement element = driver.findElement(locator);
         return element.getText().trim();
     }
