@@ -8,14 +8,13 @@ Feature: Como admin do submarino
     Given o usuário está na tela de cadastro
 
   Scenario Outline: Tentar cadastrar com e-mail inválido
-    Given o usuário está na tela de cadastro
-    And o usuário informa <e-mail> inválido
+    Given o usuário informa <email> inválido
     And o usuário preenche os demais campos corretamente
     When o usuário clicar no botão cadastrar
     Then o cadastro não é realizado
-    And o sistema retorna <mensagem> que o e-mail é obrigatório
+    And o sistema não sai da tela de cadastro
     Examples:
-      | e-mail       | mensagem          |
-      |              | Campo obrigatório |
-      | emailerrado  | Campo obrigatório |
-      | @emailerrado | Campo obrigatório |
+      | email          |
+      | 'emailerrado'  |
+      | '@emailerrado' |
+      | 'emailerrado@' |
