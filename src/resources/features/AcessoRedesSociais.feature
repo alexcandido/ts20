@@ -6,7 +6,7 @@ Feature: Como usuário do submarino
 
   Scenario Outline: Acessar as redes sociais por meio da página principal
     Given o usuário está na página principal do submarino
-    When o usuário clilcar o icone da <rede social>
+    When o usuário clicar no icone da <rede social>
     Then a <página> da rede social selecionada irá abrir
     Examples:
       | rede social    | página                                 |
