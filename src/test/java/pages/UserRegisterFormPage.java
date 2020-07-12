@@ -23,9 +23,10 @@ public class UserRegisterFormPage {
     private By phoneField = By.cssSelector(".cadastroForm [name=phone]");
     private By offerEmailRadioFlag = By.cssSelector(".cadastroForm [for=offersEmail]");
     private By submitButton = By.cssSelector(".cadastroForm button[type=submit]");
-    private By errorMsg = By.cssSelector(".inputGroup#email .inputGroup-error"); //Xpath //div[@id='email']/div[contains(@class, 'inputGroup-error')]
 
-    public UserRegisterFormPage() {
+    public static final By PAGE_TITLE = By.cssSelector(".cadastroForm-title span");
+
+    public UserRegisterFormPage(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
@@ -76,7 +77,7 @@ public class UserRegisterFormPage {
     }
 
     public String getMessage() {
-        WebElement element = driver.findElement(errorMsg);
+        WebElement element = driver.findElement(PAGE_TITLE);
         return element.getText().trim();
     }
 
