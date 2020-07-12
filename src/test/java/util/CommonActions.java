@@ -54,4 +54,8 @@ public class CommonActions {
         WebElement element = driver.findElement(locator);
         return element.getText().trim();
     }
+
+    public String currentlyUrl() {
+        return driver.getCurrentUrl();
+    }
 }

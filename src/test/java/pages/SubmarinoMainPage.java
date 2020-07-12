@@ -26,11 +26,11 @@ public class SubmarinoMainPage {
     private By registerBtn = By.cssSelector(".usr-actions .usr-signup");
     private By emailOffers = By.cssSelector("input[placeholder='Digite seu E-mail'][name=email]");
     private By cadastrarBtn = By.cssSelector("button[type=submit][value=Cadastrar]");
-    private By youtubeIcn = By.cssSelector(".sc-list [title=Youtube]");
-    private By facebookIcn = By.cssSelector(".sc-list [title=Facebook]");
-    private By instaIcn = By.cssSelector(".sc-list [title=Instagram]");
-    private By twitterIcn = By.cssSelector(".sc-list [title=Twitter]");
 
+    public static final By YOUTUBE_ICN = By.cssSelector(".sc-list [title=Youtube]");
+    public static final By FACEBOOK_ICN = By.cssSelector(".sc-list [title=Facebook]");
+    public static final By INSTAGRAM_ICN = By.cssSelector(".sc-list [title=Instagram]");
+    public static final By TWITTER_ICN = By.cssSelector(".sc-list [title=Twitter]");
     public static final By SUCCESS_MESSAGE = By.xpath("//span[contains(text(),'Seu e-mail foi cadastrado com sucesso!')]");
 
 
