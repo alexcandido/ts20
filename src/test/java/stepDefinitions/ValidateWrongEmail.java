@@ -21,7 +21,7 @@ public class ValidateWrongEmail {
     private CommonActions commonActions;
 
     @Given("o usuário está na tela de cadastro")
-    public void o_usuário_está_na_tela_de_cadastro() {
+    public void goToRegisterScreen() {
         submarinoMainPage = new SubmarinoMainPage(driver);
         userRegisterFormPage = new UserRegisterFormPage(driver);
         commonActions = new CommonActions(driver);
@@ -32,12 +32,12 @@ public class ValidateWrongEmail {
     }
 
     @Given("o usuário informa {string} inválido")
-    public void o_usuário_informa_email_inválido(String email) {
+    public void typeInvalidEmail(String email) {
         userRegisterFormPage.setEmailField(email);
     }
 
     @Given("o usuário preenche os demais campos corretamente")
-    public void o_usuário_preenche_os_demais_campos_corretamente() {
+    public void typeValidData() {
         userRegisterFormPage.setPasswordField("abcD123_E");
         userRegisterFormPage.setCpfField("994.672.620-37");
         userRegisterFormPage.setNameField("Testes de Sistemas");
@@ -47,17 +47,17 @@ public class ValidateWrongEmail {
     }
 
     @When("o usuário clicar no botão cadastrar")
-    public void o_usuário_clicar_no_botão_cadastrar() {
+    public void clickSubmitOnRegisterScreen() {
         userRegisterFormPage.clickSubmitButton();
     }
 
     @Then("o cadastro não é realizado")
-    public void o_cadastro_não_é_realizado() {
+    public void userNotRegistered() {
         commonActions.waitForAnElementBeVisible(userRegisterFormPage.PAGE_TITLE);
     }
 
     @Then("o sistema não sai da tela de cadastro")
-    public void o_sistema_não_sai_da_tela_de_cadastro() {
+    public void stayOnRegisterScreen() {
         String expectedMsg = "Cadastre-se";
         String actualMsg = commonActions.elementText(userRegisterFormPage.PAGE_TITLE);
 
