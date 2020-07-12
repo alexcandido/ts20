@@ -12,7 +12,7 @@ import util.Constants;
 
 import static org.junit.Assert.assertEquals;
 
-public class CadastrarListaOrfertas {
+public class RegisterOffersList {
 
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
