@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         tags = {"@seleniumEasy"},
 
         // Define the features files location
-        features = {"src/test/resources/features"},
+        features = {"src/resources/features"},
 
         // Define the steps files location
         glue = {"stepDefinitions"},

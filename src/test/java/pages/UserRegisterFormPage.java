@@ -1,12 +1,17 @@
 package pages;
 
+import manager.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import util.CommonActions;
 
 public class UserRegisterFormPage {
 
     private WebDriver driver;
+    private CommonActions commonActions;
+    private WebDriverWait wait;
 
     private By emailField = By.cssSelector(".cadastroForm [name=email]");
     private By passwordField = By.cssSelector(".cadastroForm [name=password]");
@@ -20,55 +25,46 @@ public class UserRegisterFormPage {
     private By submitButton = By.cssSelector(".cadastroForm button[type=submit]");
     private By errorMsg = By.cssSelector(".inputGroup#email .inputGroup-error"); //Xpath //div[@id='email']/div[contains(@class, 'inputGroup-error')]
 
-    public void setElement(By elementId, String text) {
-        WebElement element = driver.findElement(elementId);
-        element.clear();
-        element.sendKeys(text);
-    }
-
-    public void clickElement(By elementId) {
-        WebElement element = driver.findElement(elementId);
-        element.click();
+    public UserRegisterFormPage() {
+        this.driver = driver;
+        wait = DriverFactory.getWait();
+        commonActions = new CommonActions(driver);
     }
 
     public void setEmailField(String email) {
-        setElement(emailField, email);
+        commonActions.setElementValue(emailField, email);
     }
 
     public void setPasswordField(String password) {
-        setElement(passwordField, password);
+        commonActions.setElementValue(passwordField, password);
     }
 
     public void setCpfField(String cpf) {
-        setElement(cpfField, cpf);
+        commonActions.setElementValue(cpfField, cpf);
     }
 
     public void setNameField(String name) {
-        setElement(nameField, name);
+        commonActions.setElementValue(nameField, name);
     }
 
     public void setBirthdayField(String birthday) {
-        setElement(birthdayField, birthday);
+        commonActions.setElementValue(birthdayField, birthday);
     }
 
     public void setPhoneField(String phone) {
-        setElement(phoneField, phone);
+        commonActions.setElementValue(phoneField, phone);
     }
 
     public void setMaleRadioFlag() {
-        clickElement(maleRadioFlag);
+        commonActions.click(maleRadioFlag);
     }
 
     public void setFemaleRadioFlag() {
-        clickElement(femaleRadioFlag);
+        commonActions.click(femaleRadioFlag);
     }
 
-    //public void setOfferEmailRadioFlag() {
-    //    clickElement(offerEmailRadioFlag);
-    //}
-
     public void clickSubmitButton() {
-        clickElement(submitButton);
+        commonActions.click(submitButton);
     }
 
     public void selectGender(String gender) {

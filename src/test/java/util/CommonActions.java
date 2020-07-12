@@ -49,4 +49,9 @@ public class CommonActions {
     public void waitForAnElementBeVisible(By locator){
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
+    public String getText(By locator) {
+        WebElement element = driver.findElement(locator);
+        return element.getText().trim();
+    }
 }

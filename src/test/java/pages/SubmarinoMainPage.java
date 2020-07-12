@@ -67,11 +67,6 @@ public class SubmarinoMainPage {
         commonActions.setElementValue(emailOffers, email);
     }
 
-    public String getSuccessMessage() {
-        WebElement element = driver.findElement(successMsg);
-        return element.getText().trim();
-    }
-
     public void clickLogin(){
         commonActions.click(signBtn);
     }
