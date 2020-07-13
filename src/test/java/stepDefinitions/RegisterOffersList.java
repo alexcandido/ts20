@@ -45,7 +45,7 @@ public class RegisterOffersList {
     @Then("o sistema irá retornar uma mensgem de sucesso")
     public void checkSuccessMsg() {
         String expectedMsg = "Seu e-mail foi cadastrado com sucesso!";
-        String actualMsg = commonActions.elementText(submarinoMainPage.SUCCESS_MESSAGE);
+        String actualMsg = commonActions.getElementText(submarinoMainPage.SUCCESS_MESSAGE);
 
         assertEquals(expectedMsg, actualMsg);
     }
