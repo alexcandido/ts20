@@ -25,6 +25,9 @@ public class SubmarinoMainPage {
     private By registerBtn = By.cssSelector(".usr-actions .usr-signup");
     private By emailOffers = By.cssSelector("input[placeholder='Digite seu E-mail'][name=email]");
     private By cadastrarBtn = By.cssSelector("button[type=submit][value=Cadastrar]");
+    private By cartBtn = By.cssSelector(".crt-link .crt-icon");
+    private By emptyCartMsg = By.xpath("//span[contains(text(),'Seu carrinho está vazio')]");
+    private By shoppingCartLink = By.cssSelector(".crt-bottom .crt-basquet");
 
     public static final By YOUTUBE_ICN = By.cssSelector(".sc-list [title=Youtube]");
     public static final By FACEBOOK_ICN = By.cssSelector(".sc-list [title=Facebook]");
@@ -66,6 +69,15 @@ public class SubmarinoMainPage {
 
     public void clickLoginDefault(){
         commonActions.click(logInDefaultBtn);
+    }
+
+    public void clickShoppingCart(){
+        commonActions.click(cartBtn);
+    }
+
+    public void goToShoppingCart() {
+        clickShoppingCart();
+        commonActions.click(shoppingCartLink);
     }
 
     public void clickLoginFb(){

@@ -49,9 +49,8 @@ public class AccessSocialNetworks {
 
     @Then("a {string} da rede social selecionada irá abrir")
     public void checkSelectedSocialNetwork(String message) {
-        String expectedMsg = message;
         String actualMsg = commonActions.getCurrentlyUrl();
 
-        assertEquals(expectedMsg, actualMsg);
+        assertEquals(message, actualMsg);
     }
 }
