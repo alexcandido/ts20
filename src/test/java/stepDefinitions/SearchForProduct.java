@@ -7,10 +7,7 @@ import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.LoginPageViaFacebook;
-import pages.ProductPage;
-import pages.SearchPage;
-import pages.SubmarinoMainPage;
+import pages.*;
 
 public class SearchForProduct {
 
@@ -21,6 +18,7 @@ public class SearchForProduct {
     private LoginPageViaFacebook loginPageViaFacebook = new LoginPageViaFacebook(driver);
     private SearchPage searchPage = new SearchPage(driver);
     private ProductPage productPage = new ProductPage(driver);
+    private FavoritePage favoritePage = new FavoritePage(driver);
 
     @Given("o usuário está na home page")
     public void navigateToHomePage() {
@@ -59,29 +57,25 @@ public class SearchForProduct {
     public void goToFavoriteList() {
         submarinoMainPage.openFavoriteWishList();
     }
-/*
-    @Then("o portal lista o item adicionado {string}")
-    public void o_portal_lista_o_item_adicionado(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
-    @Given("o usuário vai para a lista de favoritos")
-    public void o_usuário_vai_para_a_lista_de_favoritos() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @Then("o portal lista o item adicionado {string}")
+    public void checkItemOnWishList(String productName) {
+
+        String actualResult = favoritePage.getProductName().toLowerCase();
+
+        Assert.assertTrue("Product not found!",actualResult.contains(productName));
+
     }
 
     @When("o usuário remove os itens da lista de favoritos")
-    public void o_usuário_remove_os_itens_da_lista_de_favoritos() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void clearWishList() {
+        favoritePage.clearWishList();
     }
 
     @Then("o portal irá informar que a lista está vazia")
-    public void o_portal_irá_informar_que_a_lista_está_vazia() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void showEmptyWishListMessage() {
+        String expectedMessage = "Você não possui produtos salvos";
+        Assert.assertEquals("Wrong message!",expectedMessage, favoritePage.getEmptyWishListMessage());
     }
-*/
+
 }
