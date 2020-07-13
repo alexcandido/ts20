@@ -62,9 +62,9 @@ public class LoginPageViaFacebook {
         fillPassword(password);
         clickLogin();
 
-        // Switch back to original browser (first window)
+        // Switch back to previous window context
         driver.switchTo().window(winHandleBefore);
 
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(submarinoMainPage.userName, Constants.ACCOUNT_FIRST_NAME));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(submarinoMainPage.getUserNameSelector(), Constants.ACCOUNT_FIRST_NAME));
     }
 }
