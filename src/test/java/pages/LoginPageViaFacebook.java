@@ -40,7 +40,7 @@ public class LoginPageViaFacebook {
 
     public void clickLogin() throws InterruptedException {
         commonActions.click(fbLoginBtn);
-        Thread.sleep(1000);
+        Thread.sleep(6000);
     }
 
     public void performLogin(String emailAccount, String password) throws InterruptedException {
@@ -62,19 +62,8 @@ public class LoginPageViaFacebook {
         fillPassword(password);
         clickLogin();
 
-        // Close the new window, if that window no more required
-        // driver.close();
-
         // Switch back to original browser (first window)
         driver.switchTo().window(winHandleBefore);
-
-        driver.navigate().refresh();
-
-        commonActions.waitForAnElementBeVisible(fbLogInElement);
-
-        driver.findElement(fbLogInBtn).click();
-
-        submarinoMainPage.accessPage();
 
         wait.until(ExpectedConditions.textToBePresentInElementLocated(submarinoMainPage.userName, Constants.ACCOUNT_FIRST_NAME));
     }
