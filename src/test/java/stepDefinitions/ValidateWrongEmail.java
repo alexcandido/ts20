@@ -59,7 +59,7 @@ public class ValidateWrongEmail {
     @Then("o sistema não sai da tela de cadastro")
     public void stayOnRegisterScreen() {
         String expectedMsg = "Cadastre-se";
-        String actualMsg = commonActions.elementText(userRegisterFormPage.PAGE_TITLE);
+        String actualMsg = commonActions.getElementText(userRegisterFormPage.PAGE_TITLE);
 
         assertEquals(expectedMsg, actualMsg);
     }
