@@ -4,7 +4,6 @@ import manager.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
 import util.Constants;
@@ -18,7 +17,7 @@ public class SubmarinoMainPage {
     private By signBtn = By.cssSelector("#h_usr-link");
     private By logInDefaultBtn = By.cssSelector("#h_usr-signin");
     private By logInFaceBtn = By.cssSelector("#h_usr-signinFace");
-    public By userName = By.cssSelector(".usr-act-text");
+    private By userName = By.cssSelector(".usr-act-text");
 
     private By searchBarInput = By.cssSelector("#h_search-input");
 
@@ -39,13 +38,6 @@ public class SubmarinoMainPage {
         commonActions = new CommonActions(driver);
         wait = DriverFactory.getWait();
     }
-/*
-    public void setElement(By elementId, String text) {
-        WebElement element = driver.findElement(elementId);
-        element.clear();
-        element.sendKeys(text);
-    }
-*/
 
     public SubmarinoMainPage accessPage(){
         driver.get(Constants.SUBMARINO_MAIN_URL);
@@ -84,6 +76,10 @@ public class SubmarinoMainPage {
         commonActions.click(searchBarInput);
         commonActions.setElementValue(searchBarInput, product);
         commonActions.sendKeys(searchBarInput, Keys.ENTER);
+    }
+
+    public By getUserNameSelector(){
+        return this.userName;
     }
 
 }
