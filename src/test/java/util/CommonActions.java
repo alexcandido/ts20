@@ -55,7 +55,7 @@ public class CommonActions {
         return element.getText().trim();
     }
 
-    public String currentlyUrl() {
+    public String getCurrentlyUrl() {
         return driver.getCurrentUrl();
     }
 }
