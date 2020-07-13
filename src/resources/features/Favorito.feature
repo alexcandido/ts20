@@ -10,12 +10,11 @@ Feature: Como usuário do submarino
 
   Scenario: Adicionar produto na lista de favoritos
     Given o usuário está na home page
-    And o usuário busca o produto "console play station 4" através da barra de busca
-    And o portal irá listar produtos relacionados com o termo buscado "console play station 4"
+    And o usuário busca o produto "console playstation 4" através da barra de busca
     And o usuário seleciona um dos produtos listados
     When o usuário adiciona o item a lista de favoritos
     And o usuário vai para a lista de favoritos
-    Then o portal lista o item adicionado "console play station 4"
+    Then o portal lista o item adicionado "console playstation 4"
 
   Scenario: Esvaziar lista de favoritos
     Given o usuário está na home page
