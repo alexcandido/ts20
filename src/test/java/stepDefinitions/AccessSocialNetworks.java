@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.SocialNetworksPage;
 import pages.SubmarinoMainPage;
 import util.CommonActions;
 
@@ -16,11 +17,13 @@ public class AccessSocialNetworks {
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
     private SubmarinoMainPage submarinoMainPage;
+    private SocialNetworksPage socialNetworksPage;
     private CommonActions commonActions;
 
     @Given("o usuário está na página principal do submarino")
     public void goToMainPage() {
         submarinoMainPage = new SubmarinoMainPage(driver);
+        socialNetworksPage = new SocialNetworksPage(driver);
         commonActions = new CommonActions(driver);
 
         submarinoMainPage.accessPage();
@@ -31,20 +34,14 @@ public class AccessSocialNetworks {
         // Store the current window handle
         String winHandleBefore = driver.getWindowHandle();
 
-        if (social.equals("youtube")) {
-            commonActions.click(submarinoMainPage.YOUTUBE_ICN);
-        } else if (social.equals("facebook")) {
-            commonActions.click(submarinoMainPage.FACEBOOK_ICN);
-        } else if (social.equals("instagram")) {
-            commonActions.click(submarinoMainPage.INSTAGRAM_ICN);
-        } else if (social.equals("twitter")) {
-            commonActions.click(submarinoMainPage.TWITTER_ICN);
-        }
+        submarinoMainPage.clickSocialIcon(social);
 
         // Switch to new window opened
         for(String winHandle : driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
         }
+
+        socialNetworksPage.waitLogoLoaded(social);
     }
 
     @Then("a {string} da rede social selecionada irá abrir")

@@ -12,7 +12,6 @@ Feature: Como admin do submarino
     And o usuário preenche os demais campos corretamente
     When o usuário clicar no botão cadastrar
     Then o cadastro não é realizado
-    And o sistema não sai da tela de cadastro
     Examples:
       | email          |
       | 'emailerrado'  |
