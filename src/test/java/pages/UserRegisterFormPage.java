@@ -3,7 +3,6 @@ package pages;
 import manager.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
 
@@ -23,8 +22,7 @@ public class UserRegisterFormPage {
     private By phoneField = By.cssSelector(".cadastroForm [name=phone]");
     private By offerEmailRadioFlag = By.cssSelector(".cadastroForm [for=offersEmail]");
     private By submitButton = By.cssSelector(".cadastroForm button[type=submit]");
-
-    public static final By PAGE_TITLE = By.cssSelector(".cadastroForm-title span");
+    private By pageTitle = By.cssSelector(".cadastroForm-title span");
 
     public UserRegisterFormPage(WebDriver driver) {
         this.driver = driver;
@@ -76,9 +74,9 @@ public class UserRegisterFormPage {
         }
     }
 
-    public String getMessage() {
-        WebElement element = driver.findElement(PAGE_TITLE);
-        return element.getText().trim();
+    public String getPageTitle() {
+        commonActions.waitForAnElementBeVisible(pageTitle);
+        return commonActions.findElement(pageTitle).getText();
     }
 
     public void submitUserForm(String email, String password, String cpf, String name, String birthday, String gender, String phone) {
@@ -91,6 +89,4 @@ public class UserRegisterFormPage {
         setPhoneField(phone);
         clickSubmitButton();
     }
-
-
 }

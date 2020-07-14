@@ -38,14 +38,12 @@ public class RegisterOffersList {
     }
 
     @Then("o sistema irá cadastrar o usuário na lista de ofertas")
-    public void userRegisteredSuccess() {
-        commonActions.waitForAnElementBeVisible(submarinoMainPage.SUCCESS_MESSAGE);
-    }
+    public void userRegisteredSuccess() {}
 
     @Then("o sistema irá retornar uma mensgem de sucesso")
     public void checkSuccessMsg() {
         String expectedMsg = "Seu e-mail foi cadastrado com sucesso!";
-        String actualMsg = commonActions.getElementText(submarinoMainPage.SUCCESS_MESSAGE);
+        String actualMsg = submarinoMainPage.getSuccessMessage();
 
         assertEquals(expectedMsg, actualMsg);
     }
