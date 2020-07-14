@@ -39,18 +39,11 @@ public class EmptyCart {
     }
 
     @When("o usuário clicar no botão remover")
-    public void clickToRemoveItem() {
-        commonActions.click(shoppingCartPage.REMOVE_BTN);
-    }
+    public void clickToRemoveItem() { shoppingCartPage.clickRemoveBtn(); }
 
-    @Then("o produto é removido do carrinho")
-    public void waitProductRemovedFromCart() {
-        commonActions.waitForAnElementBeVisible(shoppingCartPage.EMPTY_CART_MSG);
-    }
-
-    @Then("o carrinho fica vazio")
+    @Then("o carrinho fica vazio após remover o produto")
     public void checkCartIsEmpty() {
-        String actualMsg = commonActions.getElementText(shoppingCartPage.EMPTY_CART_MSG);
+        String actualMsg = shoppingCartPage.getEmptyCartMsg();
 
         assertEquals("Seu carrinho está vazio", actualMsg);
     }

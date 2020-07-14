@@ -12,11 +12,11 @@ public class ShoppingCartPage {
     private CommonActions commonActions;
     private WebDriverWait wait;
 
-    public static final By CART_TITLE = By.cssSelector(".basket-title .page-title");
-    public static final By PRODUCT_IN_CART = By.cssSelector(".basket-productTitle [title='Gift Card Digital Playstation Store R$ 100']");
-    public static final By PRODUCT_AMOUNT = By.xpath("//span[contains(text(),'1 produto')]");
-    public static final By REMOVE_BTN = By.cssSelector(".basket-productRemoveAct.--desktop");
-    public static final By EMPTY_CART_MSG = By.cssSelector(".basket-empty h2");
+    private By cartTitle = By.cssSelector(".basket-title .page-title");
+    private By productInCart = By.cssSelector(".basket-productTitle [title='Gift Card Digital Playstation Store R$ 100']");
+    private By productAmount = By.xpath("//span[contains(text(),'1 produto')]");
+    private By removeBtn = By.cssSelector(".basket-productRemoveAct.--desktop");
+    private By emptyCartMsg = By.cssSelector(".basket-empty h2");
 
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
@@ -25,7 +25,24 @@ public class ShoppingCartPage {
     }
 
     public void findPageTitle() {
-        commonActions.findElement(CART_TITLE);
+        commonActions.findElement(cartTitle);
+    }
+
+    public void clickRemoveBtn() { commonActions.click(removeBtn); }
+
+    public String getEmptyCartMsg() {
+        commonActions.waitForAnElementBeVisible(emptyCartMsg);
+        return commonActions.getElementText(emptyCartMsg);
+    }
+
+    public String getProductInCart() {
+        commonActions.waitForAnElementBeVisible(productInCart);
+        return commonActions.getElementText(productInCart);
+    }
+
+    public String getProductAmount() {
+        commonActions.waitForAnElementBeVisible(productAmount);
+        return commonActions.getElementText(productAmount);
     }
 
 }

@@ -15,9 +15,8 @@ public class ProductPage {
 
     public By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
     public By isFavorite = By.cssSelector(".djqnfb");
-    
-    public static final By PSN_CARD = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
-    public static final By BUY_BUTTON = By.cssSelector("#btn-buy[value=Comprar]");
+    private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
+    private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
     
     public ProductPage(WebDriver driver){
         this.driver = driver;
@@ -29,8 +28,8 @@ public class ProductPage {
         commonActions.waitForAnElementBeVisible(isFavorite);
     }
 
-    public void clickOnPsnCard() { commonActions.click(PSN_CARD); }
+    public void clickOnPsnCard() { commonActions.click(psnCard); }
 
-    public void clickToBuy() { commonActions.click(BUY_BUTTON); }
+    public void clickToBuy() { commonActions.click(buyBtn); }
 
 }
