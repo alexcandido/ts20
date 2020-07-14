@@ -31,10 +31,7 @@ public class SubmarinoMainPage {
     private By instagramIcn = By.cssSelector(".sc-list [title=Instagram]");
     private By twitterIcn = By.cssSelector(".sc-list [title=Twitter]");
     private By successMessage = By.xpath("//span[contains(text(),'Seu e-mail foi cadastrado com sucesso!')]");
-
-    //public static final By SUCCESS_MESSAGE = By.xpath("//span[contains(text(),'Seu e-mail foi cadastrado com sucesso!')]");
-
-
+    
     public SubmarinoMainPage(WebDriver driver){
         this.driver = driver;
         commonActions = new CommonActions(driver);
