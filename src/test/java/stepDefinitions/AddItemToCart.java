@@ -43,18 +43,14 @@ public class AddItemToCart {
     public void checkAddedProduct() {
         shoppingCartPage.findPageTitle();
 
-        commonActions.waitForAnElementBeVisible(shoppingCartPage.PRODUCT_IN_CART);
-
-        String product = commonActions.getElementText(shoppingCartPage.PRODUCT_IN_CART);
+        String product = shoppingCartPage.getProductInCart();
 
         assertEquals("Gift Card Digital Playstation Store R$ 100", product);
     }
 
     @Then("a quantidade é atualizada para 1")
     public void checkAmount() {
-        commonActions.waitForAnElementBeVisible(shoppingCartPage.PRODUCT_AMOUNT);
-
-        String amount = commonActions.getElementText(shoppingCartPage.PRODUCT_AMOUNT);
+        String amount = shoppingCartPage.getProductAmount();
 
         assertEquals("1 produto", amount);
     }

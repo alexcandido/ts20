@@ -9,5 +9,4 @@ Feature: Como usuário do submarino
     Given o usuário está na home page do submarino
     When o usuário digitar seu e-mail na lista de ofertas
     And o usuário selecionar o botão cadastrar
-    Then o sistema irá cadastrar o usuário na lista de ofertas
-    And o sistema irá retornar uma mensgem de sucesso
+    Then o sistema retorna uma mensagem de sucesso informando que o usuário foi cadastrado na lista de ofertas

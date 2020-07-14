@@ -37,10 +37,7 @@ public class RegisterOffersList {
         submarinoMainPage.clickSubmitBtn();
     }
 
-    @Then("o sistema irá cadastrar o usuário na lista de ofertas")
-    public void userRegisteredSuccess() {}
-
-    @Then("o sistema irá retornar uma mensgem de sucesso")
+    @Then("o sistema retorna uma mensagem de sucesso informando que o usuário foi cadastrado na lista de ofertas")
     public void checkSuccessMsg() {
         String expectedMsg = "Seu e-mail foi cadastrado com sucesso!";
         String actualMsg = submarinoMainPage.getSuccessMessage();
