@@ -2,10 +2,13 @@ package pages;
 
 import manager.DriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
+
+import java.util.List;
 
 public class ProductPage {
 
@@ -17,6 +20,9 @@ public class ProductPage {
     public By isFavorite = By.cssSelector(".djqnfb");
     private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
+    private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
+    private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
+
     
     public ProductPage(WebDriver driver){
         this.driver = driver;
@@ -31,5 +37,14 @@ public class ProductPage {
     public void clickOnPsnCard() { commonActions.click(psnCard); }
 
     public void clickToBuy() { commonActions.click(buyBtn); }
+
+    public void openPaymentOptions(){
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+driver.findElement(paymentOptionsLink).getLocation().y+")");
+        commonActions.click(paymentOptionsLink);
+    }
+
+    public List<WebElement> getPaymentOptionsList(){
+        return commonActions.findElements(paymentOptions);
+    }
 
 }
