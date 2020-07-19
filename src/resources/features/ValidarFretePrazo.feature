@@ -11,4 +11,4 @@ Feature: Como usuário do submarino
     Given o usuário busca o produto "game of thrones" através da barra de busca
     And o usuário seleciona um dos produtos listados
     When o usuário informar o CEP "52011040"
-    Then o portal lista o frete e o prazo convencional
+    Then o portal lista a tabela do tipo, preço e prazo do frete
