@@ -1,10 +1,7 @@
 package pages;
 
 import manager.DriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
 
@@ -22,6 +19,8 @@ public class ProductPage {
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
     private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
+    private By zipCodeInput = By.cssSelector("input[placeholder]");
+    private By okBtn = By.cssSelector("button[type=submit]");
 
     
     public ProductPage(WebDriver driver){
@@ -45,6 +44,12 @@ public class ProductPage {
 
     public List<WebElement> getPaymentOptionsList(){
         return commonActions.findElements(paymentOptions);
+    }
+
+    public void fillZipCode(String zip){
+        commonActions.click(zipCodeInput);
+        commonActions.setElementValue(zipCodeInput, zip);
+        commonActions.click(okBtn);
     }
 
 }
