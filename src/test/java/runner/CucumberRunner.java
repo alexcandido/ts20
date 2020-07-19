@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // Run the scenarios specified by tags
-        tags = {"@seleniumEasy"},
+        tags = {"@ts20"},
 
         // Define the features files location
         features = {"src/resources/features"},

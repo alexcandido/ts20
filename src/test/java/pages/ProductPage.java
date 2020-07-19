@@ -21,7 +21,7 @@ public class ProductPage {
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
     private By zipCodeInput = By.cssSelector(".input-box");
     private By okBtn = By.cssSelector("#bt-freight-product");
-    private By shippingTable = By.cssSelector(".TableUI-v0rmpz-0");
+    private By shippingTable = By.cssSelector(".TableUI-v0rmpz-0 .THead-sc-1wy23hs-0");
 
     
     public ProductPage(WebDriver driver){
