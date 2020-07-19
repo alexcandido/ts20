@@ -19,8 +19,9 @@ public class ProductPage {
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
     private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
-    private By zipCodeInput = By.cssSelector("input[placeholder]");
-    private By okBtn = By.cssSelector("button[type=submit]");
+    private By zipCodeInput = By.cssSelector(".input-box");
+    private By okBtn = By.cssSelector("#bt-freight-product");
+    private By shippingTable = By.cssSelector(".TableUI-v0rmpz-0");
 
     
     public ProductPage(WebDriver driver){
@@ -46,10 +47,16 @@ public class ProductPage {
         return commonActions.findElements(paymentOptions);
     }
 
-    public void fillZipCode(String zip){
-        commonActions.click(zipCodeInput);
+    public void fillZipCode(String zip) {
         commonActions.setElementValue(zipCodeInput, zip);
         commonActions.click(okBtn);
+    }
+
+    public boolean getShippingTable() {
+        if (commonActions.findElement(shippingTable).isDisplayed()) {
+            return true;
+        }
+        else return false;
     }
 
 }
