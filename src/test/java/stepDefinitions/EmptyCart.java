@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.DriverFactory;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ProductPage;
@@ -11,7 +12,6 @@ import pages.ShoppingCartPage;
 import pages.SubmarinoMainPage;
 import util.CommonActions;
 
-import static org.junit.Assert.assertEquals;
 
 public class EmptyCart {
 
@@ -44,6 +44,6 @@ public class EmptyCart {
     public void checkCartIsEmpty() {
         String actualMsg = shoppingCartPage.getEmptyCartMsg();
 
-        assertEquals("Seu carrinho está vazio", actualMsg);
+        Assert.assertEquals("A mensagem não foi a esperada!","Seu carrinho está vazio", actualMsg);
     }
 }
