@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ProductPage;
+import pages.SearchPage;
 import pages.ShoppingCartPage;
 import pages.SubmarinoMainPage;
 import util.CommonActions;
@@ -17,14 +18,20 @@ public class EmptyCart {
 
     private WebDriver driver = DriverFactory.getDriver();
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
+    private SearchPage searchPage = new SearchPage(driver);
     private ProductPage productPage = new ProductPage(driver);
     private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 
     @Given("o usuário possui um item no carrinho")
-    public void goToCartWithItem() {
+    public void addItemToShoppingCart() {
+        submarinoMainPage.accessPage();
         submarinoMainPage.fillSearchBarAndPressEnter("Cartão psn");
-        productPage.clickOnPsnCard();
+        searchPage.clickOnFoundItem();
         productPage.clickToBuy();
+    }
+
+    @Given("o usuário abre o carrinho")
+    public void openTheShoppingCart(){
         submarinoMainPage.accessPage();
         submarinoMainPage.goToShoppingCart();
         shoppingCartPage.findPageTitle();

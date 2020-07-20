@@ -16,7 +16,6 @@ public class ValidateWrongEmail {
     private WebDriver driver = DriverFactory.getDriver();
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
     private UserRegisterFormPage userRegisterFormPage = new UserRegisterFormPage(driver);
-    private CommonActions commonActions = new CommonActions(driver);
 
     @Given("o usuário está na tela de cadastro")
     public void goToRegisterScreen() {
