@@ -20,4 +20,11 @@ as linhas dos outros sistemas comentadas
 
 Nota: Caso tenha algum problema com o Chromedriver, provavelmente a versão do seu Chrome não é compatível com a do
 driver fornecido, nesse caso, precisa fazer o download do driver equivalente a sua versão do browser em
-https://chromedriver.chromium.org/downloads
+https://chromedriver.chromium.org/downloads e substituir na pasta:
+
+**MAC:** src/resources/chromedriver/macos
+
+**WINDOWS:** src/resources/chromedriver/windows
+
+**LINUX:** src/resources/chromedriver/linux
+
