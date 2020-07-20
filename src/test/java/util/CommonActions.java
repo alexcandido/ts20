@@ -1,10 +1,7 @@
 package util;
 
 import manager.DriverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -65,5 +62,12 @@ public class CommonActions {
 
     public By getCssSelectorModifiedByRegex(String selectorString, String value) {
         return By.cssSelector(selectorString.replace("%s", value));
+    }
+
+    public void scrollToElement(By locator) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        waitForAnElementBeVisible(locator);
+        WebElement element = driver.findElement(locator);
+        js.executeScript("arguments[0].scrollIntoView();", element);
     }
 }

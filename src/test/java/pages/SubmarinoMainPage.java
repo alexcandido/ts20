@@ -97,16 +97,16 @@ public class SubmarinoMainPage {
 
     public void clickSocialIcon(String social) {
         if (social.equals("youtube")) {
-            commonActions.waitForAnElementBeVisible(youtubeIcn);
+            commonActions.scrollToElement(youtubeIcn);
             commonActions.click(youtubeIcn);
         } else if (social.equals("facebook")) {
-            commonActions.waitForAnElementBeVisible(facebookIcn);
+            commonActions.scrollToElement(facebookIcn);
             commonActions.click(facebookIcn);
         } else if (social.equals("instagram")) {
-            commonActions.waitForAnElementBeVisible(instagramIcn);
+            commonActions.scrollToElement(instagramIcn);
             commonActions.click(instagramIcn);
         } else if (social.equals("twitter")) {
-            commonActions.waitForAnElementBeVisible(twitterIcn);
+            commonActions.scrollToElement(twitterIcn);
             commonActions.click(twitterIcn);
         }
     }

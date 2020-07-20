@@ -63,11 +63,13 @@ public class ProductPage {
     }
 
     public void fillZipCode(String zip) {
+        commonActions.scrollToElement(zipCodeInput);
         commonActions.setElementValue(zipCodeInput, zip);
         commonActions.click(okBtn);
     }
 
     public boolean getShippingTable() {
+        commonActions.scrollToElement(shippingTable);
         if (commonActions.findElement(shippingTable).isDisplayed()) {
             return true;
         } else return false;
