@@ -13,7 +13,6 @@ import util.Constants;
 public class RegisterOffersList {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
 
 
