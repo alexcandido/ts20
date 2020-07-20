@@ -14,7 +14,6 @@ import util.CommonActions;
 public class AccessSocialNetworks {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
     private SocialNetworksPage socialNetworksPage = new SocialNetworksPage(driver);
     private CommonActions commonActions = new CommonActions(driver);
