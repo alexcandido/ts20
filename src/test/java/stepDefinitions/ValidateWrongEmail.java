@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.SubmarinoMainPage;
 import pages.UserRegisterFormPage;
-import util.CommonActions;
 
 
 public class ValidateWrongEmail {
