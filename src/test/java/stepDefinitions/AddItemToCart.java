@@ -14,7 +14,6 @@ import pages.ShoppingCartPage;
 public class AddItemToCart {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
     private ProductPage productPage = new ProductPage(driver);
     private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 
