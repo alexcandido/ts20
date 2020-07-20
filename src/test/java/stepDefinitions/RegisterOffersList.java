@@ -1,34 +1,26 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.DriverFactory;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SubmarinoMainPage;
-import util.CommonActions;
 import util.Constants;
 
-import static org.junit.Assert.assertEquals;
 
 public class RegisterOffersList {
 
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
     private SubmarinoMainPage submarinoMainPage;
-    private CommonActions commonActions;
 
-    @Given("o usuário está na home page do submarino")
-    public void goToMain() {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-        commonActions = new CommonActions(driver);
-
-        submarinoMainPage.accessPage();
-    }
 
     @When("o usuário digitar seu e-mail na lista de ofertas")
     public void typeValidEmailOnOffersField() {
+        submarinoMainPage = new SubmarinoMainPage(driver);
+
         submarinoMainPage.setEmailField(Constants.SUBMARINO_ACCOUNT);
     }
 
@@ -42,6 +34,6 @@ public class RegisterOffersList {
         String expectedMsg = "Seu e-mail foi cadastrado com sucesso!";
         String actualMsg = submarinoMainPage.getSuccessMessage();
 
-        assertEquals(expectedMsg, actualMsg);
+        Assert.assertEquals("A mensagem não foi a esperada!", expectedMsg, actualMsg);
     }
 }
