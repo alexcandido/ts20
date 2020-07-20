@@ -17,18 +17,13 @@ public class EmptyCart {
 
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
-    private SubmarinoMainPage submarinoMainPage;
-    private ProductPage productPage;
-    private ShoppingCartPage shoppingCartPage;
-    private CommonActions commonActions;
+    private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
+    private ProductPage productPage = new ProductPage(driver);
+    private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+    private CommonActions commonActions = new CommonActions(driver);
 
     @Given("o usuário possui um item no carrinho")
     public void goToCartWithItem() {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-        productPage = new ProductPage(driver);
-        shoppingCartPage = new ShoppingCartPage(driver);
-        commonActions = new CommonActions(driver);
-
         submarinoMainPage.fillSearchBarAndPressEnter("Cartão psn");
         productPage.clickOnPsnCard();
         productPage.clickToBuy();
