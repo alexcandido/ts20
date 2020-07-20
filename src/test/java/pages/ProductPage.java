@@ -16,12 +16,15 @@ public class ProductPage {
     public By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
     public By isFavorite = By.cssSelector(".djqnfb");
     private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
+
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
     private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
     private By zipCodeInput = By.cssSelector(".input-box");
     private By okBtn = By.cssSelector("button[type=submit][value=OK]");
     private By shippingTable = By.cssSelector(".TableUI-v0rmpz-0 .THead-sc-1wy23hs-0");
+
+    private String productSelectorByNameStr = "//div[contains(@class, 'main-grid')]//h2[contains(text(),'%s')]";
 
     
     public ProductPage(WebDriver driver){
