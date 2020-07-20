@@ -21,7 +21,7 @@ public class ProductPage {
     private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
 
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
-    private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
+    private By paymentOptionsLink = By.xpath("//span[@role='link' and text()='Formas de parcelamento']");
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
     private By zipCodeInput = By.cssSelector(".input-box");
     private By okBtn = By.cssSelector("button[type=submit][value=OK]");
