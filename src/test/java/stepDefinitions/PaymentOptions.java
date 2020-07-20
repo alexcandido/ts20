@@ -22,10 +22,10 @@ public class PaymentOptions {
 
     @Then("o portal lista as formas de pagamento disponíveis")
     public void validatePaymentOptions() {
-        List<String> expectedPaymentOptionsList = Arrays.asList("Cartão de crédito", "Submarino","Boleto bancário", "Ame");
+        List<String> expectedPaymentOptionsList = Arrays.asList("Cartão de crédito", "Submarino", "Boleto bancário", "Ame");
         List<WebElement> actualPaymentOptionList = productPage.getPaymentOptionsList();
 
-        for(int i = 0; i < actualPaymentOptionList.size(); i++){
+        for (int i = 0; i < actualPaymentOptionList.size(); i++) {
             Assert.assertEquals("Payment option wrong!", expectedPaymentOptionsList.get(i), actualPaymentOptionList.get(i).getText());
         }
     }

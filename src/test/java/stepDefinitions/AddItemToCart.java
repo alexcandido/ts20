@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ProductPage;
 import pages.ShoppingCartPage;
 
@@ -34,14 +33,14 @@ public class AddItemToCart {
 
         String product = shoppingCartPage.getProductInCart();
 
-        Assert.assertEquals("O produto não foi adicionado!",itemName, product);
+        Assert.assertEquals("O produto não foi adicionado!", itemName, product);
     }
 
     @Then("a quantidade é atualizada para 1")
     public void checkAmount() {
         String amount = shoppingCartPage.getProductAmount();
 
-        Assert.assertEquals("Quantidade errada!" ,"1 produto", amount);
+        Assert.assertEquals("Quantidade errada!", "1 produto", amount);
     }
 
 }

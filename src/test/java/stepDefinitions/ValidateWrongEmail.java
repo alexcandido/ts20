@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SubmarinoMainPage;
 import pages.UserRegisterFormPage;
 import util.CommonActions;

@@ -33,12 +33,14 @@ public class EmptyCart {
     }
 
     @When("o usuário clicar no botão remover")
-    public void clickToRemoveItem() { shoppingCartPage.clickRemoveBtn(); }
+    public void clickToRemoveItem() {
+        shoppingCartPage.clickRemoveBtn();
+    }
 
     @Then("o carrinho fica vazio após remover o produto")
     public void checkCartIsEmpty() {
         String actualMsg = shoppingCartPage.getEmptyCartMsg();
 
-        Assert.assertEquals("A mensagem não foi a esperada!","Seu carrinho está vazio", actualMsg);
+        Assert.assertEquals("A mensagem não foi a esperada!", "Seu carrinho está vazio", actualMsg);
     }
 }

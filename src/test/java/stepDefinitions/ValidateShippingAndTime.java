@@ -21,7 +21,7 @@ public class ValidateShippingAndTime {
     }
 
     @Then("o portal lista a tabela do tipo, preço e prazo do frete")
-    public void verifyShippingAndTime(){
+    public void verifyShippingAndTime() {
         Assert.assertTrue("Tabela de frete não exibida", productPage.getShippingTable());
     }
 }

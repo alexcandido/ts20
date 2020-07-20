@@ -29,7 +29,7 @@ public class AccessSocialNetworks {
         submarinoMainPage.clickSocialIcon(social);
 
         // Switch to new window opened
-        for(String winHandle : driver.getWindowHandles()){
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
 
@@ -40,6 +40,6 @@ public class AccessSocialNetworks {
     public void checkSelectedSocialNetwork(String message) {
         String actualMsg = commonActions.getCurrentlyUrl();
 
-        Assert.assertEquals("Rede Social não encontrada" ,message, actualMsg);
+        Assert.assertEquals("Rede Social não encontrada", message, actualMsg);
     }
 }
