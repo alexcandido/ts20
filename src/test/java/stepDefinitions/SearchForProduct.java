@@ -47,6 +47,11 @@ public class SearchForProduct {
         searchPage.clickOnFoundItem();
     }
 
+    @Given("o usuário seleciona o produto {string}")
+    public void selecProductByName(String productName) {
+        productPage.clickOnProductByName(productName);
+    }
+
     @When("o usuário adiciona o item a lista de favoritos")
     public void addProductToFavoriteList() {
         productPage.addProductToFavoriteList();
