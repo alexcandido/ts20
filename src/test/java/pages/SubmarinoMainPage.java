@@ -31,19 +31,19 @@ public class SubmarinoMainPage {
     private By instagramIcn = By.cssSelector(".sc-list [title=Instagram]");
     private By twitterIcn = By.cssSelector(".sc-list [title=Twitter]");
     private By successMessage = By.xpath("//span[contains(text(),'Seu e-mail foi cadastrado com sucesso!')]");
-    
-    public SubmarinoMainPage(WebDriver driver){
+
+    public SubmarinoMainPage(WebDriver driver) {
         this.driver = driver;
         commonActions = new CommonActions(driver);
         wait = DriverFactory.getWait();
     }
 
-    public SubmarinoMainPage accessPage(){
+    public SubmarinoMainPage accessPage() {
         driver.get(Constants.SUBMARINO_MAIN_URL);
         return this;
     }
 
-    public void openFavoriteWishList(){
+    public void openFavoriteWishList() {
         commonActions.click(favoriteBtn);
     }
 
@@ -59,15 +59,15 @@ public class SubmarinoMainPage {
         commonActions.setElementValue(emailOffers, email);
     }
 
-    public void clickLogin(){
+    public void clickLogin() {
         commonActions.click(signBtn);
     }
 
-    public void clickLoginDefault(){
+    public void clickLoginDefault() {
         commonActions.click(logInDefaultBtn);
     }
 
-    public void clickShoppingCart(){
+    public void clickShoppingCart() {
         commonActions.click(cartBtn);
     }
 
@@ -76,17 +76,17 @@ public class SubmarinoMainPage {
         commonActions.click(shoppingCartLink);
     }
 
-    public void clickLoginFb(){
+    public void clickLoginFb() {
         commonActions.click(logInFaceBtn);
     }
 
-    public void fillSearchBarAndPressEnter(String product){
+    public void fillSearchBarAndPressEnter(String product) {
         commonActions.click(searchBarInput);
         commonActions.setElementValue(searchBarInput, product);
         commonActions.sendKeys(searchBarInput, Keys.ENTER);
     }
 
-    public By getUserNameSelector(){
+    public By getUserNameSelector() {
         return this.userName;
     }
 

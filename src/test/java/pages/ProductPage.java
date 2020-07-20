@@ -1,7 +1,10 @@
 package pages;
 
 import manager.DriverFactory;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
 
@@ -26,31 +29,36 @@ public class ProductPage {
 
     private String productSelectorByNameStr = "//div[contains(@class, 'main-grid')]//h2[contains(text(),'%s')]";
 
-    
-    public ProductPage(WebDriver driver){
+
+    public ProductPage(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
     }
-    public void addProductToFavoriteList(){
+
+    public void addProductToFavoriteList() {
         commonActions.click(favoriteIcon);
         commonActions.waitForAnElementBeVisible(isFavorite);
     }
 
-    public void clickOnPsnCard() { commonActions.click(psnCard); }
-
-    public void clickOnProductByName(String productName) {
-        commonActions.click(commonActions.getXpathSelectorModifiedByRegex(productSelectorByNameStr,productName));
+    public void clickOnPsnCard() {
+        commonActions.click(psnCard);
     }
 
-    public void clickToBuy() { commonActions.click(buyBtn); }
+    public void clickOnProductByName(String productName) {
+        commonActions.click(commonActions.getXpathSelectorModifiedByRegex(productSelectorByNameStr, productName));
+    }
 
-    public void openPaymentOptions(){
-        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+driver.findElement(paymentOptionsLink).getLocation().y+")");
+    public void clickToBuy() {
+        commonActions.click(buyBtn);
+    }
+
+    public void openPaymentOptions() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + driver.findElement(paymentOptionsLink).getLocation().y + ")");
         commonActions.click(paymentOptionsLink);
     }
 
-    public List<WebElement> getPaymentOptionsList(){
+    public List<WebElement> getPaymentOptionsList() {
         return commonActions.findElements(paymentOptions);
     }
 
@@ -62,8 +70,7 @@ public class ProductPage {
     public boolean getShippingTable() {
         if (commonActions.findElement(shippingTable).isDisplayed()) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
 }

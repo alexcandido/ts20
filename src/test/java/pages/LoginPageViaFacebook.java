@@ -3,7 +3,6 @@ package pages;
 import manager.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.CommonActions;
@@ -23,18 +22,18 @@ public class LoginPageViaFacebook {
     private By fbPasswordInput = By.cssSelector("#pass");
     private By fbLoginBtn = By.cssSelector("#loginbutton");
 
-    public LoginPageViaFacebook (WebDriver driver){
+    public LoginPageViaFacebook(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
         submarinoMainPage = new SubmarinoMainPage(driver);
     }
 
-    public void fillEmail(String email){
+    public void fillEmail(String email) {
         commonActions.setElementValue(fbEmailInput, email);
     }
 
-    public void fillPassword(String password){
+    public void fillPassword(String password) {
         commonActions.setElementValue(fbPasswordInput, password);
     }
 
@@ -53,7 +52,7 @@ public class LoginPageViaFacebook {
         driver.findElement(fbLogInBtn).click();
 
         // Switch to new window opened
-        for(String winHandle : driver.getWindowHandles()){
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
 

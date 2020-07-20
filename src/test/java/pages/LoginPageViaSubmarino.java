@@ -16,21 +16,21 @@ public class LoginPageViaSubmarino {
     private By subPasswordInput = By.cssSelector("#password-input");
     private By subLoginBtn = By.cssSelector("#login-button");
 
-    public LoginPageViaSubmarino (WebDriver driver){
+    public LoginPageViaSubmarino(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
     }
 
-    public void fillEmail(String email){
+    public void fillEmail(String email) {
         commonActions.setElementValue(subEmailInput, email);
     }
 
-    public void fillPassword(String password){
+    public void fillPassword(String password) {
         commonActions.setElementValue(subPasswordInput, password);
     }
 
-    public void clickLoginDefault(){
+    public void clickLoginDefault() {
         commonActions.click(subLoginBtn);
     }
 
