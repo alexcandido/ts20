@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.DriverFactory;
@@ -16,11 +15,6 @@ public class AddItemToCart {
     private ProductPage productPage = new ProductPage(driver);
     private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 
-
-    @Given("o usuário seleciona o cartão da psn de R$100")
-    public void selectItem() {
-        productPage.clickOnPsnCard();
-    }
 
     @When("o usuário clicar no botão comprar")
     public void addToCard() {

@@ -16,8 +16,8 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", MAC_CHROME_DRIVER);
-            //System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER);
+            //System.setProperty("webdriver.chrome.driver", MAC_CHROME_DRIVER);
+            System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER);
             //System.setProperty("webdriver.chrome.driver", LINUX_CHROME_DRIVER);
             driver = new ChromeDriver();
         }
