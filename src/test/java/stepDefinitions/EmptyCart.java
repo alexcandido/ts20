@@ -29,7 +29,6 @@ public class EmptyCart {
         shoppingCartPage = new ShoppingCartPage(driver);
         commonActions = new CommonActions(driver);
 
-        submarinoMainPage.accessPage();
         submarinoMainPage.fillSearchBarAndPressEnter("Cartão psn");
         productPage.clickOnPsnCard();
         productPage.clickToBuy();
