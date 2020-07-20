@@ -12,14 +12,14 @@ public class Hooks {
 
     @Before
     public void setUp() {
-        System.out.println("BEFORE ALL");
+        System.out.println("BEFORE ALL EXECUTIONS: maximize the browser windows");
         driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
     }
 
     @After
     public void tearDown() {
-        System.out.println("AFTER ALL");
+        System.out.println("AFTER ALL EXECUTIONS: close the browser window");
         DriverFactory.endSession();
     }
 
