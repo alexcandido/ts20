@@ -15,13 +15,12 @@ public class AddItemToCart {
 
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
-    private ProductPage productPage;
-    private ShoppingCartPage shoppingCartPage;
+    private ProductPage productPage = new ProductPage(driver);
+    private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 
 
     @Given("o usuário seleciona o cartão da psn de R$100")
     public void selectItem() {
-        productPage = new ProductPage(driver);
         productPage.clickOnPsnCard();
     }
 
@@ -32,8 +31,6 @@ public class AddItemToCart {
 
     @Then("o produto {string} é adicionado ao carrinho")
     public void checkAddedProduct(String itemName) {
-        shoppingCartPage = new ShoppingCartPage(driver);
-
         shoppingCartPage.findPageTitle();
 
         String product = shoppingCartPage.getProductInCart();
