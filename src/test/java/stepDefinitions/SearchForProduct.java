@@ -15,8 +15,6 @@ import pages.SubmarinoMainPage;
 public class SearchForProduct {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
     private SearchPage searchPage = new SearchPage(driver);
     private ProductPage productPage = new ProductPage(driver);
