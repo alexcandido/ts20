@@ -58,4 +58,12 @@ public class CommonActions {
     public String getCurrentlyUrl() {
         return driver.getCurrentUrl();
     }
+
+    public By getXpathSelectorModifiedByRegex(String selectorString, String value){
+        return By.xpath(selectorString.replace("%s",value));
+    }
+
+    public By getCssSelectorModifiedByRegex(String selectorString, String value){
+        return By.cssSelector(selectorString.replace("%s",value));
+    }
 }
