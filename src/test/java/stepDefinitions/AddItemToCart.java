@@ -4,33 +4,24 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import manager.DriverFactory;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ProductPage;
 import pages.ShoppingCartPage;
-import pages.SubmarinoMainPage;
-import util.CommonActions;
 
-import static org.junit.Assert.assertEquals;
 
 public class AddItemToCart {
 
     private WebDriver driver = DriverFactory.getDriver();
     private WebDriverWait wait = DriverFactory.getWait();
-    private SubmarinoMainPage submarinoMainPage;
     private ProductPage productPage;
     private ShoppingCartPage shoppingCartPage;
-    private CommonActions commonActions;
 
-    @Given("o usuário encontra um produto desejado")
-    public void findItem() {
-        submarinoMainPage = new SubmarinoMainPage(driver);
+
+    @Given("o usuário seleciona o cartão da psn de R$100")
+    public void selectItem() {
         productPage = new ProductPage(driver);
-        shoppingCartPage = new ShoppingCartPage(driver);
-        commonActions = new CommonActions(driver);
-
-        submarinoMainPage.accessPage();
-        submarinoMainPage.fillSearchBarAndPressEnter("Cartão psn");
         productPage.clickOnPsnCard();
     }
 
@@ -41,18 +32,20 @@ public class AddItemToCart {
 
     @Then("o produto é adicionado ao carrinho")
     public void checkAddedProduct() {
+        shoppingCartPage = new ShoppingCartPage(driver);
+
         shoppingCartPage.findPageTitle();
 
         String product = shoppingCartPage.getProductInCart();
 
-        assertEquals("Gift Card Digital Playstation Store R$ 100", product);
+        Assert.assertEquals("O produto não foi adicionado!","Gift Card Digital Playstation Store R$ 100", product);
     }
 
     @Then("a quantidade é atualizada para 1")
     public void checkAmount() {
         String amount = shoppingCartPage.getProductAmount();
 
-        assertEquals("1 produto", amount);
+        Assert.assertEquals("Quantidade errada!" ,"1 produto", amount);
     }
 
 }
