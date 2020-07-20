@@ -20,7 +20,7 @@ public class ProductPage {
     private By paymentOptionsLink = By.xpath("//span[contains(text(),'Formas de parcelamento')]");
     private By paymentOptions = By.xpath("//span[contains(@class,'NavTitleUI')]");
     private By zipCodeInput = By.cssSelector(".input-box");
-    private By okBtn = By.cssSelector("#bt-freight-product");
+    private By okBtn = By.cssSelector("button[type=submit][value=OK]");
     private By shippingTable = By.cssSelector(".TableUI-v0rmpz-0 .THead-sc-1wy23hs-0");
 
     
