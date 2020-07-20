@@ -17,10 +17,10 @@ public class SocialNetworksPage {
     private By instagramLogo = By.cssSelector(".cq2ai [alt=Instagram]");
     private By twitterLogo = By.cssSelector("[aria-label=Twitter][role=button]");
 
-    public SocialNetworksPage(WebDriver driver){
+    public SocialNetworksPage(WebDriver driver) {
         this.driver = driver;
-        commonActions = new CommonActions(driver);
         wait = DriverFactory.getWait();
+        commonActions = new CommonActions(driver);
     }
 
     public void waitLogoLoaded(String social) {
@@ -34,6 +34,5 @@ public class SocialNetworksPage {
             commonActions.waitForAnElementBeVisible(twitterLogo);
         }
     }
-
 
 }

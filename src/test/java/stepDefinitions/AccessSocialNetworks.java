@@ -14,17 +14,13 @@ import util.CommonActions;
 public class AccessSocialNetworks {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-    private SubmarinoMainPage submarinoMainPage;
-    private SocialNetworksPage socialNetworksPage;
-    private CommonActions commonActions;
+    private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
+    private SocialNetworksPage socialNetworksPage = new SocialNetworksPage(driver);
+    private CommonActions commonActions = new CommonActions(driver);
 
 
     @When("o usuário clicar no icone da {string}")
     public void clickSocialNetworkIcon(String social) {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-        socialNetworksPage = new SocialNetworksPage(driver);
-        commonActions = new CommonActions(driver);
 
         // Store the current window handle
         String winHandleBefore = driver.getWindowHandle();
@@ -32,7 +28,7 @@ public class AccessSocialNetworks {
         submarinoMainPage.clickSocialIcon(social);
 
         // Switch to new window opened
-        for(String winHandle : driver.getWindowHandles()){
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
 
@@ -43,6 +39,6 @@ public class AccessSocialNetworks {
     public void checkSelectedSocialNetwork(String message) {
         String actualMsg = commonActions.getCurrentlyUrl();
 
-        Assert.assertEquals("Rede Social não encontrada" ,message, actualMsg);
+        Assert.assertEquals("Rede Social não encontrada", message, actualMsg);
     }
 }

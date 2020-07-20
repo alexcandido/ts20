@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.ProductPage;
 import pages.ShoppingCartPage;
 
@@ -14,14 +13,12 @@ import pages.ShoppingCartPage;
 public class AddItemToCart {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-    private ProductPage productPage;
-    private ShoppingCartPage shoppingCartPage;
+    private ProductPage productPage = new ProductPage(driver);
+    private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
 
 
     @Given("o usuário seleciona o cartão da psn de R$100")
     public void selectItem() {
-        productPage = new ProductPage(driver);
         productPage.clickOnPsnCard();
     }
 
@@ -30,22 +27,20 @@ public class AddItemToCart {
         productPage.clickToBuy();
     }
 
-    @Then("o produto é adicionado ao carrinho")
-    public void checkAddedProduct() {
-        shoppingCartPage = new ShoppingCartPage(driver);
-
+    @Then("o produto {string} é adicionado ao carrinho")
+    public void checkAddedProduct(String itemName) {
         shoppingCartPage.findPageTitle();
 
         String product = shoppingCartPage.getProductInCart();
 
-        Assert.assertEquals("O produto não foi adicionado!","Gift Card Digital Playstation Store R$ 100", product);
+        Assert.assertEquals("O produto não foi adicionado!", itemName, product);
     }
 
     @Then("a quantidade é atualizada para 1")
     public void checkAmount() {
         String amount = shoppingCartPage.getProductAmount();
 
-        Assert.assertEquals("Quantidade errada!" ,"1 produto", amount);
+        Assert.assertEquals("Quantidade errada!", "1 produto", amount);
     }
 
 }

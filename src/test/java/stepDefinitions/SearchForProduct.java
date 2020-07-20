@@ -6,16 +6,15 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.*;
+import pages.FavoritePage;
+import pages.ProductPage;
+import pages.SearchPage;
+import pages.SubmarinoMainPage;
 
 public class SearchForProduct {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
-    private LoginPageViaFacebook loginPageViaFacebook = new LoginPageViaFacebook(driver);
     private SearchPage searchPage = new SearchPage(driver);
     private ProductPage productPage = new ProductPage(driver);
     private FavoritePage favoritePage = new FavoritePage(driver);
@@ -47,6 +46,11 @@ public class SearchForProduct {
         searchPage.clickOnFoundItem();
     }
 
+    @Given("o usuário seleciona o produto {string}")
+    public void selecProductByName(String productName) {
+        productPage.clickOnProductByName(productName);
+    }
+
     @When("o usuário adiciona o item a lista de favoritos")
     public void addProductToFavoriteList() {
         productPage.addProductToFavoriteList();
@@ -63,7 +67,7 @@ public class SearchForProduct {
 
         String actualResult = favoritePage.getProductName().toLowerCase();
 
-        Assert.assertTrue("Product not found!",actualResult.contains(productName));
+        Assert.assertTrue("Product not found!", actualResult.contains(productName));
 
     }
 
@@ -75,7 +79,7 @@ public class SearchForProduct {
     @Then("o portal irá informar que a lista está vazia")
     public void showEmptyWishListMessage() {
         String expectedMessage = "Você não possui produtos salvos";
-        Assert.assertEquals("Wrong message!",expectedMessage, favoritePage.getEmptyWishListMessage());
+        Assert.assertEquals("Wrong message!", expectedMessage, favoritePage.getEmptyWishListMessage());
     }
 
 }

@@ -18,7 +18,7 @@ public class SearchPage {
     private By relatedSearchProductsOnGrid = By.cssSelector(".main-grid > .product-grid-item");
     private By foundProduct = By.cssSelector(".product-grid-item");
 
-    public SearchPage(WebDriver driver){
+    public SearchPage(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
@@ -36,7 +36,7 @@ public class SearchPage {
         return commonActions.findElements(relatedSearchProductsOnGrid).size();
     }
 
-    public void clickOnFoundItem(){
+    public void clickOnFoundItem() {
         commonActions.click(foundProduct);
     }
 }

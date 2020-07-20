@@ -28,7 +28,9 @@ public class ShoppingCartPage {
         commonActions.findElement(cartTitle);
     }
 
-    public void clickRemoveBtn() { commonActions.click(removeBtn); }
+    public void clickRemoveBtn() {
+        commonActions.click(removeBtn);
+    }
 
     public String getEmptyCartMsg() {
         commonActions.waitForAnElementBeVisible(emptyCartMsg);

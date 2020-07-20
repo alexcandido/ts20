@@ -11,8 +11,6 @@ import pages.ProductPage;
 public class ValidateShippingAndTime {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-
     private ProductPage productPage = new ProductPage(driver);
 
     @When("o usuário informar o CEP {string}")
@@ -21,7 +19,7 @@ public class ValidateShippingAndTime {
     }
 
     @Then("o portal lista a tabela do tipo, preço e prazo do frete")
-    public void verifyShippingAndTime(){
+    public void verifyShippingAndTime() {
         Assert.assertTrue("Tabela de frete não exibida", productPage.getShippingTable());
     }
 }

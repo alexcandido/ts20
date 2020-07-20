@@ -13,14 +13,11 @@ import util.Constants;
 public class RegisterOffersList {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-    private SubmarinoMainPage submarinoMainPage;
+    private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
 
 
     @When("o usuário digitar seu e-mail na lista de ofertas")
     public void typeValidEmailOnOffersField() {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-
         submarinoMainPage.setEmailField(Constants.SUBMARINO_ACCOUNT);
     }
 

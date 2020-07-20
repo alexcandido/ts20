@@ -11,13 +11,11 @@ import util.Constants;
 public class PerformLogin {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private SubmarinoMainPage submarinoMainPage;
-    private LoginPageViaFacebook loginPageViaFacebook;
+    private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
+    private LoginPageViaFacebook loginPageViaFacebook = new LoginPageViaFacebook(driver);
 
     @Given("o usuário está logado no portal")
     public void performLogin() throws InterruptedException {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-        loginPageViaFacebook = new LoginPageViaFacebook(driver);
 
         submarinoMainPage.accessPage();
         submarinoMainPage.clickLogin();

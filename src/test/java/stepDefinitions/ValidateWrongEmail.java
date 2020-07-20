@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import manager.DriverFactory;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.SubmarinoMainPage;
 import pages.UserRegisterFormPage;
 import util.CommonActions;
@@ -15,17 +14,11 @@ import util.CommonActions;
 public class ValidateWrongEmail {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-    private SubmarinoMainPage submarinoMainPage;
-    private UserRegisterFormPage userRegisterFormPage;
-    private CommonActions commonActions;
+    private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
+    private UserRegisterFormPage userRegisterFormPage = new UserRegisterFormPage(driver);
 
     @Given("o usuário está na tela de cadastro")
     public void goToRegisterScreen() {
-        submarinoMainPage = new SubmarinoMainPage(driver);
-        userRegisterFormPage = new UserRegisterFormPage(driver);
-        commonActions = new CommonActions(driver);
-
         submarinoMainPage.accessPage();
         submarinoMainPage.clickLogin();
         submarinoMainPage.openNewUserForm();

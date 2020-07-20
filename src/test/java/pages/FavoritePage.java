@@ -18,26 +18,26 @@ public class FavoritePage {
     private By productName = By.xpath("//h2[contains(@class,'TitleUI')]");
 
 
-    public FavoritePage(WebDriver driver){
+    public FavoritePage(WebDriver driver) {
         this.driver = driver;
         wait = DriverFactory.getWait();
         commonActions = new CommonActions(driver);
     }
 
-    public void clearWishList(){
+    public void clearWishList() {
         commonActions.waitForAnElementBeVisible(favoriteIcon);
 
-        while (!commonActions.findElement(emptyWishListMessage).getText().equals("Você não possui produtos salvos")){
+        while (!commonActions.findElement(emptyWishListMessage).getText().equals("Você não possui produtos salvos")) {
             commonActions.findElement(favoriteIcon).click();
         }
     }
 
-    public String getProductName(){
+    public String getProductName() {
         commonActions.waitForAnElementBeVisible(productCard);
         return commonActions.findElement(productName).getText();
     }
 
-    public String getEmptyWishListMessage(){
+    public String getEmptyWishListMessage() {
         return commonActions.findElement(emptyWishListMessage).getText();
     }
 }
