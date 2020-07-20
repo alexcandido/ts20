@@ -15,7 +15,6 @@ public class SearchForProduct {
     private WebDriverWait wait = DriverFactory.getWait();
 
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
-    private LoginPageViaFacebook loginPageViaFacebook = new LoginPageViaFacebook(driver);
     private SearchPage searchPage = new SearchPage(driver);
     private ProductPage productPage = new ProductPage(driver);
     private FavoritePage favoritePage = new FavoritePage(driver);
