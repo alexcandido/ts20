@@ -6,7 +6,6 @@ Feature: Como usuário do submarino
   Para que eu possa encontrar os itens com facilidade
 
   Scenario: Buscar por produtos pelo nome usando a busca principal do portal
-    Given o usuário está na home page do submarino
-    When o usuário digitar o produto "console play station 4"
-    And o usuário pressionar enter
+    Given o usuário está na home page
+    When o usuário busca o produto "console play station 4" através da barra de busca
     Then o portal irá listar produtos relacionados com o termo buscado "console play station 4"
