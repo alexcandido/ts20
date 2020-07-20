@@ -8,7 +8,7 @@ public class DriverFactory {
 
     private static WebDriver driver;
     private static WebDriverWait wait;
-    private static long defaultTimeout = 10;
+    private static long defaultTimeout = 20;
 
     private static final String MAC_CHROME_DRIVER = "src/resources/chromedriver/macos/chromedriver";
     private static final String WINDOWS_CHROME_DRIVER = "src/resources/chromedriver/windows/chromedriver.exe";
@@ -16,8 +16,8 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            //System.setProperty("webdriver.chrome.driver", MAC_CHROME_DRIVER);
-            System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER);
+            System.setProperty("webdriver.chrome.driver", MAC_CHROME_DRIVER);
+            //System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER);
             //System.setProperty("webdriver.chrome.driver", LINUX_CHROME_DRIVER);
             driver = new ChromeDriver();
         }
