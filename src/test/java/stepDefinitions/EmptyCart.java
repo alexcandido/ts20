@@ -16,11 +16,9 @@ import util.CommonActions;
 public class EmptyCart {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
     private SubmarinoMainPage submarinoMainPage = new SubmarinoMainPage(driver);
     private ProductPage productPage = new ProductPage(driver);
     private ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
-    private CommonActions commonActions = new CommonActions(driver);
 
     @Given("o usuário possui um item no carrinho")
     public void goToCartWithItem() {
