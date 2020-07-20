@@ -39,6 +39,10 @@ public class ProductPage {
 
     public void clickOnPsnCard() { commonActions.click(psnCard); }
 
+    public void clickOnProductByName(String productName) {
+        commonActions.click(commonActions.getXpathSelectorModifiedByRegex(productSelectorByNameStr,productName));
+    }
+
     public void clickToBuy() { commonActions.click(buyBtn); }
 
     public void openPaymentOptions(){
