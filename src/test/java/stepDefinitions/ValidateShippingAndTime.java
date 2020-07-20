@@ -11,8 +11,6 @@ import pages.ProductPage;
 public class ValidateShippingAndTime {
 
     private WebDriver driver = DriverFactory.getDriver();
-    private WebDriverWait wait = DriverFactory.getWait();
-
     private ProductPage productPage = new ProductPage(driver);
 
     @When("o usuário informar o CEP {string}")
