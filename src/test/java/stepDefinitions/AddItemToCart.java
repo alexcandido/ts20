@@ -30,15 +30,15 @@ public class AddItemToCart {
         productPage.clickToBuy();
     }
 
-    @Then("o produto é adicionado ao carrinho")
-    public void checkAddedProduct() {
+    @Then("o produto {string} é adicionado ao carrinho")
+    public void checkAddedProduct(String itemName) {
         shoppingCartPage = new ShoppingCartPage(driver);
 
         shoppingCartPage.findPageTitle();
 
         String product = shoppingCartPage.getProductInCart();
 
-        Assert.assertEquals("O produto não foi adicionado!","Gift Card Digital Playstation Store R$ 100", product);
+        Assert.assertEquals("O produto não foi adicionado!",itemName, product);
     }
 
     @Then("a quantidade é atualizada para 1")
