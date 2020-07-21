@@ -14,7 +14,6 @@ public class SearchPage {
 
     private By relatedSearchTerm = By.cssSelector(".card-suggestions-link");
     private By relatedSearchTitle = By.cssSelector(".h1.page-title");
-    //private By relatedSearchItemsOnGrid = By.xpath("//div[contains(@class,'main-grid')]/div[contains(@class,'product-grid-item')]");
     private By relatedSearchProductsOnGrid = By.cssSelector(".main-grid > .product-grid-item");
     private By foundProduct = By.cssSelector(".product-grid-item");
 
