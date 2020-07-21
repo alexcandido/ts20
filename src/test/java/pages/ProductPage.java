@@ -67,7 +67,9 @@ public class ProductPage {
         commonActions.scrollToElement(shippingTable);
         if (commonActions.findElement(shippingTable).isDisplayed()) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
 }
