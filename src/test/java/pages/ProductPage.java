@@ -16,8 +16,8 @@ public class ProductPage {
     private WebDriverWait wait;
     private CommonActions commonActions;
 
-    public By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
-    public By isFavorite = By.cssSelector(".djqnfb");
+    private By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
+    private By isFavorite = By.cssSelector(".djqnfb");
     private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
 
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
