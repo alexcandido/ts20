@@ -41,10 +41,6 @@ public class ProductPage {
         commonActions.waitForAnElementBeVisible(isFavorite);
     }
 
-    public void clickOnPsnCard() {
-        commonActions.click(psnCard);
-    }
-
     public void clickOnProductByName(String productName) {
         commonActions.click(commonActions.getXpathSelectorModifiedByRegex(productSelectorByNameStr, productName));
     }
