@@ -63,7 +63,7 @@ public class ProductPage {
         commonActions.click(okBtn);
     }
 
-    public boolean getShippingTable() {
+    public boolean isShippingTableDisplayed() {
         commonActions.scrollToElement(shippingTable);
         if (commonActions.findElement(shippingTable).isDisplayed()) {
             return true;
