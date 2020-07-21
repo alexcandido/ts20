@@ -16,9 +16,8 @@ public class ProductPage {
     private WebDriverWait wait;
     private CommonActions commonActions;
 
-    public By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
-    public By isFavorite = By.cssSelector(".djqnfb");
-    private By psnCard = By.xpath("//div[contains(@class, 'main-grid')]//h2[contains(text(),'Gift Card Digital Playstation Store R$ 100')]");
+    private By favoriteIcon = By.xpath("//div[contains(@class,'favorite-button')]");
+    private By isFavorite = By.cssSelector(".djqnfb");
 
     private By buyBtn = By.cssSelector("#btn-buy[value=Comprar]");
     private By paymentOptionsLink = By.xpath("//span[@role='link' and text()='Formas de parcelamento']");
@@ -39,10 +38,6 @@ public class ProductPage {
     public void addProductToFavoriteList() {
         commonActions.click(favoriteIcon);
         commonActions.waitForAnElementBeVisible(isFavorite);
-    }
-
-    public void clickOnPsnCard() {
-        commonActions.click(psnCard);
     }
 
     public void clickOnProductByName(String productName) {
@@ -68,11 +63,13 @@ public class ProductPage {
         commonActions.click(okBtn);
     }
 
-    public boolean getShippingTable() {
+    public boolean isShippingTableDisplayed() {
         commonActions.scrollToElement(shippingTable);
         if (commonActions.findElement(shippingTable).isDisplayed()) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
 }

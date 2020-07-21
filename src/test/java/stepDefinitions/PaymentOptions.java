@@ -26,7 +26,7 @@ public class PaymentOptions {
         List<WebElement> actualPaymentOptionList = productPage.getPaymentOptionsList();
 
         for (int i = 0; i < actualPaymentOptionList.size(); i++) {
-            Assert.assertEquals("Payment option wrong!", expectedPaymentOptionsList.get(i), actualPaymentOptionList.get(i).getText());
+            Assert.assertEquals("Opção de pagamento diferente do esperado!", expectedPaymentOptionsList.get(i), actualPaymentOptionList.get(i).getText());
         }
     }
 }

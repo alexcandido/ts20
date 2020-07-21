@@ -32,13 +32,13 @@ public class SearchForProduct {
     @Given("o portal irá listar produtos relacionados com o termo buscado {string}")
     public void listRelatedProducts(String product) {
         String actualResult = searchPage.getRelatedSearchTerm();
-        Assert.assertEquals("The returned term is properly shown at term result.", product, actualResult);
+        Assert.assertEquals("O termo retornado nos termos relacionados é diferente do esperado", product, actualResult);
 
         actualResult = searchPage.getRelatedSearchTitle();
-        Assert.assertEquals("The returned term is properly shown at title result.", product, actualResult);
+        Assert.assertEquals("O termo retornado no título da busca é diferente do esperado.", product, actualResult);
 
         int foundProductsNumber = searchPage.getItemsNumberOnGrid();
-        Assert.assertTrue("The number of items found is positive.", foundProductsNumber > 0);
+        Assert.assertTrue("O número de produtos encontrados é inválido", foundProductsNumber > 0);
     }
 
     @Given("o usuário seleciona um dos produtos listados")
@@ -67,7 +67,7 @@ public class SearchForProduct {
 
         String actualResult = favoritePage.getProductName().toLowerCase();
 
-        Assert.assertTrue("Product not found!", actualResult.contains(productName));
+        Assert.assertTrue("Produto não encontrado!", actualResult.contains(productName));
 
     }
 
